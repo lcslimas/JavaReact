@@ -1,6 +1,8 @@
 const React = require('react');
 const ReactDOM = require('react-dom'); 
-const client = require('./client');
+import axios from "axios";
+import form from './Components/form';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 
 class App extends React.Component { 
 
@@ -10,14 +12,18 @@ class App extends React.Component {
 	}
 
 	componentDidMount() { 
-		client({method: 'post', path: '/api/insert'}).done(response => {
-			console.log(response)
-		});
+		axios.get('/api/movies').then(res=>
+			this.setState({movies: res.data._embedded.movies})
+
+		)
 	}
 
 	render() {
 		return (
+			<div>
 			<MovieList movies={this.state.movies}/>
+			<Link to="/admin" />
+			</div>
 		)
 	}
 	
@@ -54,6 +60,11 @@ class Movie extends React.Component{
 }
 
 ReactDOM.render(
-	<App />,
+	<BrowserRouter>
+        <Switch>
+            <Route path="/" exact={true} component={App} />
+            <Route path="/admin" component={form} />
+        </Switch>
+    </ BrowserRouter>,
 	document.getElementById('react')
 )
