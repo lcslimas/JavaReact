@@ -1,1 +1,1 @@
-insert into movie values("id","name","desc")
+insert into movie values("Movie","description movie above example","http://via.placeholder.com/150")

@@ -1,7 +1,9 @@
-const React = require('react');
-const ReactDOM = require('react-dom'); 
+import React from 'react';
+import ReactDOM from 'react-dom'; 
 import axios from "axios";
-import form from './Components/form';
+import form from './form';
+import Header from './Components/Header';
+
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 
 class App extends React.Component { 
@@ -20,9 +22,12 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div>
-			<MovieList movies={this.state.movies}/>
-			<Link to="/admin" />
+			<div className="wrapped P-5">
+				<div className="container "> 
+					<h1 className="text-center justify-content-center d-flex row">BusterFlix</h1>
+						<MovieList className="border" movies={this.state.movies}/>
+					<Link to="/admin" className="btn-link">Ir para página de Admin</Link>
+				</div>
 			</div>
 		)
 	}
@@ -35,15 +40,9 @@ class MovieList extends React.Component{
 			<Movie key={movie._links.self.href} movie={movie}/>
 		);
 		return (
-			<table>
-				<tbody>
-					<tr>
-						<th>Nome</th>
-						<th>Descrição</th>
-					</tr>
+			<div className="col-12 row border mb-3">
 					{movie}
-				</tbody>
-			</table>
+			</div>
 		)
 	}
 }
@@ -51,16 +50,18 @@ class MovieList extends React.Component{
 class Movie extends React.Component{
 	render() {
 		return (
-			<tr>
-				<td>{this.props.movie.name}</td>
-				<td>{this.props.movie.description}</td>
-			</tr>
+			<div className="col-4 p-2">
+				<div className="text-center container"><img src={this.props.movie.image}/></div>
+				<div className="text-center pt-2 border-bottom">{this.props.movie.name}</div>
+				<div className="text-center">{this.props.movie.description}</div>
+			</div>
 		)
 	}
 }
 
 ReactDOM.render(
 	<BrowserRouter>
+	<Header />
         <Switch>
             <Route path="/" exact={true} component={App} />
             <Route path="/admin" component={form} />

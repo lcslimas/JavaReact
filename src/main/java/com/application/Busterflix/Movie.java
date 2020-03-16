@@ -12,13 +12,14 @@ public class Movie {
 	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
 	private String name;
 	private String description;
-	private Date releaseDate;
+	private String image;
 	 
 	private Movie() {};
 	
-	public Movie(String name, String description) {
+	public Movie(String name, String description, String image) {
 		this.name = name;
 		this.description = description;
+		this.image = image;
 	}
 	
 	@Override
@@ -60,6 +61,14 @@ public class Movie {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 	
 }

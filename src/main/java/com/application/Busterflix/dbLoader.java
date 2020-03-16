@@ -18,7 +18,7 @@ public class dbLoader implements CommandLineRunner{
 	
 	@Override
 	public void run(String... strings) throws Exception {
-		this.repository.save(new Movie("first", "desc"));
+		this.repository.save(new Movie("Movie1", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque elementum finibus cursus. Duis vehicula odio turpis, eu congue nibh lacinia ut. Nunc placerat tellus interdum quam laoreet tempor. In semper, nunc et gravida ","http://via.placeholder.com/150"));
 	}
 	
 }
