@@ -22,7 +22,6 @@ Para a estilização do projeto
 Para consumir API Restful
 
 2. Projeto   
-- Projeto de desafio técnico
 - Para rodar o projeto você deve digitar ./mvnw clean install no seu git bash, para instalação das dependências, e utilizar alguma IDE, para rodar o projeto. Além de possuir instalar PostgreSQL
 
 
