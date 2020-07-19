@@ -34739,24 +34739,18 @@ var Header = function Header() {
 
 /***/ }),
 
-/***/ "./src/main/js/app.js":
-/*!****************************!*\
-  !*** ./src/main/js/app.js ***!
-  \****************************/
-/*! no exports provided */
+/***/ "./src/main/js/Components/MovieList/Movie/index.js":
+/*!*********************************************************!*\
+  !*** ./src/main/js/Components/MovieList/Movie/index.js ***!
+  \*********************************************************/
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Movie; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./form */ "./src/main/js/form.js");
-/* harmony import */ var _Components_Header__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Components/Header */ "./src/main/js/Components/Header/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -34777,88 +34771,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-
-
-
-
-
-var App = /*#__PURE__*/function (_React$Component) {
-  _inherits(App, _React$Component);
-
-  function App(props) {
-    var _this;
-
-    _classCallCheck(this, App);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, props));
-    _this.state = {
-      movies: []
-    };
-    return _this;
-  }
-
-  _createClass(App, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/api/movies').then(function (res) {
-        return _this2.setState({
-          movies: res.data._embedded.movies
-        });
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "wrapped P-5"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container "
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-        className: "text-center justify-content-center d-flex row"
-      }, "BusterFlix"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(MovieList, {
-        className: "border",
-        movies: this.state.movies
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Link"], {
-        to: "/admin",
-        className: "btn-link"
-      }, "Ir para p\xE1gina de Admin")));
-    }
-  }]);
-
-  return App;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-var MovieList = /*#__PURE__*/function (_React$Component2) {
-  _inherits(MovieList, _React$Component2);
-
-  function MovieList() {
-    _classCallCheck(this, MovieList);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(MovieList).apply(this, arguments));
-  }
-
-  _createClass(MovieList, [{
-    key: "render",
-    value: function render() {
-      var movie = this.props.movies.map(function (movie) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Movie, {
-          key: movie._links.self.href,
-          movie: movie
-        });
-      });
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-12 row border mb-3"
-      }, movie);
-    }
-  }]);
-
-  return MovieList;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-var Movie = /*#__PURE__*/function (_React$Component3) {
-  _inherits(Movie, _React$Component3);
+var Movie = /*#__PURE__*/function (_React$Component) {
+  _inherits(Movie, _React$Component);
 
   function Movie() {
     _classCallCheck(this, Movie);
@@ -34886,30 +34800,23 @@ var Movie = /*#__PURE__*/function (_React$Component3) {
   return Movie;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Components_Header__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Route"], {
-  path: "/",
-  exact: true,
-  component: App
-}), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Route"], {
-  path: "/admin",
-  component: _form__WEBPACK_IMPORTED_MODULE_3__["default"]
-}))), document.getElementById('react'));
+
 
 /***/ }),
 
-/***/ "./src/main/js/form.js":
-/*!*****************************!*\
-  !*** ./src/main/js/form.js ***!
-  \*****************************/
+/***/ "./src/main/js/Components/MovieList/index.js":
+/*!***************************************************!*\
+  !*** ./src/main/js/Components/MovieList/index.js ***!
+  \***************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Form; });
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MovieList; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Movie__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Movie */ "./src/main/js/Components/MovieList/Movie/index.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -34930,97 +34837,247 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
-var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+var MovieList = /*#__PURE__*/function (_React$Component) {
+  _inherits(MovieList, _React$Component);
+
+  function MovieList() {
+    _classCallCheck(this, MovieList);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(MovieList).apply(this, arguments));
+  }
+
+  _createClass(MovieList, [{
+    key: "render",
+    value: function render() {
+      var movie = this.props.movies.map(function (movie) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Movie__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          key: movie._links.self.href,
+          movie: movie
+        });
+      });
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 row border mb-3"
+      }, movie);
+    }
+  }]);
+
+  return MovieList;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+
+
+/***/ }),
+
+/***/ "./src/main/js/app.js":
+/*!****************************!*\
+  !*** ./src/main/js/app.js ***!
+  \****************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _pages_cadastroFilme__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/cadastroFilme */ "./src/main/js/pages/cadastroFilme/index.js");
+/* harmony import */ var _Components_Header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Components/Header */ "./src/main/js/Components/Header/index.js");
+/* harmony import */ var _pages_home___WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/home/ */ "./src/main/js/pages/home/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+
+
+
+
+
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Components_Header__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Route"], {
+  path: "/",
+  exact: true,
+  component: _pages_home___WEBPACK_IMPORTED_MODULE_4__["default"]
+}), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Route"], {
+  path: "/admin",
+  component: _pages_cadastroFilme__WEBPACK_IMPORTED_MODULE_2__["default"]
+}))), document.getElementById('react'));
+
+/***/ }),
+
+/***/ "./src/main/js/pages/cadastroFilme/index.js":
+/*!**************************************************!*\
+  !*** ./src/main/js/pages/cadastroFilme/index.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Form; });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 
 
 var Form = /*#__PURE__*/function (_React$Component) {
   _inherits(Form, _React$Component);
 
-  function Form(props) {
-    var _this;
-
+  function Form() {
     _classCallCheck(this, Form);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Form).call(this, props));
-    _this.state = {
-      insert: ''
-    };
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(Form).apply(this, arguments));
   }
 
   _createClass(Form, [{
     key: "insertMovie",
     value: function insertMovie(e) {
-      var _this2 = this;
-
       e.preventDefault();
-      var name = document.getElementById("name").value;
-      var description = document.getElementById("description").value;
-      var information = {
-        'name': name,
-        'description': description,
-        'image': 'http://via.placeholder.com/150'
-      };
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/insert', information).then(function (res) {
-        return _this2.setState({
-          insert: res.status
-        });
+      console.log(e);
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/insert', {
+        'name': 'Marlon',
+        'description': 'desc'
       });
-      document.getElementById("name").value = "";
-      document.getElementById("description").value = "";
     }
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this = this;
 
-      return React.createElement("div", {
-        className: "p-5 border container"
-      }, React.createElement("h1", {
-        className: "text-center justify-content-center"
-      }, "Adicionar novos filmes"), React.createElement("form", {
+      return React.createElement("form", {
         onSubmit: function onSubmit(e) {
-          return _this3.insertMovie(e);
+          return _this.insertMovie(e);
         },
         method: "post"
       }, React.createElement("div", {
-        className: "form-group col-12"
-      }, React.createElement("label", null, "Nome:"), React.createElement("input", {
-        className: "form-control",
-        id: "name",
-        type: "text",
-        required: true,
-        placeholder: "Insira nome do filme"
+        className: "col-6"
+      }, "Name:"), React.createElement("div", {
+        className: "col-6"
+      }, React.createElement("input", {
+        type: "text"
       })), React.createElement("div", {
-        className: "form-group col-12"
-      }, React.createElement("label", null, "Descri\xE7\xE3o:"), React.createElement("textarea", {
-        id: "description",
-        className: "form-control",
-        required: true,
-        placeholder: "Insira descri\xE7\xE3o do filme"
-      })), React.createElement("div", {
-        className: "form-group  align-content-end"
-      }, React.createElement("button", {
-        className: "btn btn-primary",
+        className: "col-6"
+      }, "Description:"), React.createElement("div", {
+        className: "col-6"
+      }, React.createElement("input", {
+        type: "text"
+      })), React.createElement("button", {
+        className: "btn btn-danger",
         type: "submit"
-      }, "Cadastrar"))), this.state.insert == 200 ? React.createElement("div", {
-        className: "alert alert-success",
-        role: "alert"
-      }, "Filme cadastrado com sucesso") : this.state.insert != 200 && this.state.insert != '' ? React.createElement("div", {
-        className: "alert alert-danger",
-        role: "alert"
-      }, "Falha na adi\xE7\xE3o do filme") : '', React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_0__["Link"], {
-        to: "/",
-        className: "mt-5 btn-link"
-      }, "Voltar para Hub de Filmes"));
+      }, "Cadastrar"));
     }
   }]);
 
   return Form;
 }(React.Component);
+
+
+
+/***/ }),
+
+/***/ "./src/main/js/pages/home/index.js":
+/*!*****************************************!*\
+  !*** ./src/main/js/pages/home/index.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Home; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Components_MovieList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Components/MovieList */ "./src/main/js/Components/MovieList/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+var Home = /*#__PURE__*/function (_React$Component) {
+  _inherits(Home, _React$Component);
+
+  function Home(props) {
+    var _this;
+
+    _classCallCheck(this, Home);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Home).call(this, props));
+    _this.state = {
+      movies: []
+    };
+    return _this;
+  }
+
+  _createClass(Home, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/movies').then(function (res) {
+        return _this2.setState({
+          movies: res.data._embedded.movies
+        });
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "wrapped P-5"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "container "
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "text-center justify-content-center d-flex row"
+      }, "BusterFlix"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Components_MovieList__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        className: "border",
+        movies: this.state.movies
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+        to: "/admin",
+        className: "btn-link"
+      }, "Ir para p\xE1gina de Admin")));
+    }
+  }]);
+
+  return Home;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 
 

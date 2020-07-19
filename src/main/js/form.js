@@ -1,6 +1,5 @@
 import {Link} from "react-router-dom";
 const React = require('react');
-const ReactDOM = require('react-dom'); 
 import axios from "axios";
 export default class Form extends React.Component { 
     constructor(props) {
