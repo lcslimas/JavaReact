@@ -1,4 +1,4 @@
-package com.application.Busterflix;
+package com.application.Busterflix.Controller;
 
 import java.util.Optional;
 
@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.application.Busterflix.Model.Movie;
+import com.application.Busterflix.Repo.MovieRepo;
 
 @Controller
 public class appController {

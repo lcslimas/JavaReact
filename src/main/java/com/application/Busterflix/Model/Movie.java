@@ -1,4 +1,4 @@
-package com.application.Busterflix;
+package com.application.Busterflix.Model;
 
 import java.sql.Date;
 
