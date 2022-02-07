@@ -1,10 +1,12 @@
 package com.application.Busterflix.Model;
 
-import java.sql.Date;
-
 import java.util.Objects;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name="movie")
@@ -14,7 +16,7 @@ public class Movie {
 	private String description;
 	private String image;
 	 
-	private Movie() {};
+	public Movie() {}
 	
 	public Movie(String name, String description, String image) {
 		this.name = name;
