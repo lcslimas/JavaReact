@@ -51,7 +51,6 @@ export const Main = () => {
   return (
     <div className="wrapped P-5">
       <div className="container "> 
-        <h1 className="text-center justify-content-center d-flex row">BusterFlix</h1>
           <MovieList className="border" movies={movies}/>
           <Link to="/movies/new" className="btn-link">Ir para página de Admin</Link>
       </div>
