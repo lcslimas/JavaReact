@@ -42,4 +42,15 @@ public class MovieServiceImpl implements MovieService {
 			throw new Exception("Filme não encontrado");
 		}
 	}
+
+	@Override
+	public Movie findById(Long id) throws Exception {
+		Optional<Movie> movie = repository.findById(id);
+		
+		if(movie != null && movie.isPresent()) {
+			return movie.get();
+		} else {
+			throw new Exception("Filme não encontrado");
+		}
+	}
 }

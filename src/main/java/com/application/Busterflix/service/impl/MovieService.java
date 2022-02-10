@@ -11,4 +11,6 @@ public interface MovieService {
 	List<Movie> findAll();
 
 	void delete(Long id) throws Exception;
+
+	Movie findById(Long id) throws Exception;
 }

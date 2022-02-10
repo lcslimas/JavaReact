@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 export const Main = () => { 
   const[ movies, setMovies ] = useState([]);
+  const { push } = useHistory();
 
 	useEffect(()=> {
     updateMovieList();
@@ -34,13 +35,17 @@ export const Main = () => {
     )
   }
 
+  const onMovieClick = (id) => {
+    push('/movies/'+id)
+  }
+
   const Movie = ({movie: {id, image, name, description}}) => (
-      <div className="col-4 p-2">
-        <div className="position-absolute" style={{'cursor': 'pointer', 'right': '0px'}} onClick={()=> remove(id)}>X</div>
-        <div className="text-center container"><img src={image}/></div>
-        <div className="text-center pt-2 border-bottom">{name}</div>
-        <div className="text-center">{description}</div>
-      </div>
+    <div className="col-4 p-2" onClick={() => onMovieClick(id)} style={{'cursor': 'pointer'}}>
+      <div className="position-absolute" style={{'cursor': 'pointer', 'right': '0px'}} onClick={()=> remove(id)}>X</div>
+      <div className="text-center container"><img src={image}/></div>
+      <div className="text-center pt-2 border-bottom">{name}</div>
+      <div className="text-center">{description}</div>
+    </div>
   )
   
   return (
@@ -48,7 +53,7 @@ export const Main = () => {
       <div className="container "> 
         <h1 className="text-center justify-content-center d-flex row">BusterFlix</h1>
           <MovieList className="border" movies={movies}/>
-          <Link to="/admin" className="btn-link">Ir para página de Admin</Link>
+          <Link to="/movies/new" className="btn-link">Ir para página de Admin</Link>
       </div>
     </div>
   )	

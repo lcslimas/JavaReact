@@ -1,10 +1,12 @@
 package com.application.Busterflix.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -62,5 +64,61 @@ public class MovieServiceTest {
 		assertEquals(movies.size(), moviesSaved.size());
 		assertEquals(movies.get(0).getId(), moviesSaved.get(0).getId());
 		assertEquals(movies.get(1).getId(), moviesSaved.get(1).getId());
+	}
+	
+	@Test
+	public void findByIdTest() throws Exception {
+		Long id = 1l;
+		Movie movie = new Movie("Nome", "Descrição", "urlImg");
+		movie.setId(id);
+		
+		when(repository.findById(id)).thenReturn(Optional.of(movie));
+		
+		Movie movieFound = service.findById(id);
+		
+		assertEquals(movieFound.getId(), movieFound.getId());
+		assertEquals(movieFound.getName(), movieFound.getName());
+		assertEquals(movieFound.getDescription(), movieFound.getDescription());
+		assertEquals(movieFound.getImage(), movieFound.getImage());
+	}
+	
+	@Test
+	public void findByIdNotFoundTest() throws Exception {
+		Long id = 1l;
+		Movie movie = new Movie("Nome", "Descrição", "urlImg");
+		movie.setId(id);
+		try {
+			when(repository.findById(id)).thenReturn(null);
+		} catch (Exception e) {
+			assertEquals(e.getMessage(), "Filme não encontrado");
+		}
+		
+	}
+	
+	@Test
+	public void deleteTest() throws Exception {
+		Long id = 1l;
+		Movie movie = new Movie("Nome", "Descrição", "urlImg");
+		movie.setId(id);
+		when(repository.findById(id)).thenReturn(Optional.of(movie));
+		
+		service.delete(id);
+		
+		verify(repository).deleteById(id);
+	}
+	
+	@Test
+	public void deleteNotFoundTest() throws Exception {
+		Long id = 1l;
+		Movie movie = new Movie("Nome", "Descrição", "urlImg");
+		movie.setId(id);
+		when(repository.findById(id)).thenReturn(Optional.of(movie));
+		
+		service.delete(id);
+		try {
+			when(repository.findById(id)).thenReturn(null);
+		} catch (Exception e) {
+			assertEquals(e.getMessage(), "Filme não encontrado");
+		}
 	}
 }

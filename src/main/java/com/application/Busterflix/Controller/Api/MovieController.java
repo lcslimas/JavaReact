@@ -13,16 +13,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.application.Busterflix.Model.Movie;
-import com.application.Busterflix.service.impl.MovieServiceImpl;
+import com.application.Busterflix.service.impl.MovieService;
 
 @RestController
 @RequestMapping("/api/movies")
 public class MovieController {
 
 	@Autowired
-	MovieServiceImpl service;
+	MovieService service;
 	
-	public MovieController(MovieServiceImpl service) {
+	public MovieController(MovieService service) {
 		this.service = service;
 	}
 	
@@ -30,6 +30,11 @@ public class MovieController {
 	public @ResponseBody Movie insert(@RequestBody Movie movie) {
 		return service.save(movie);
 		
+	}
+	
+	@GetMapping(value = "/{id}")
+	public @ResponseBody Movie findById(@PathVariable Long id) throws Exception {
+		return service.findById(id);
 	}
 	
 	@GetMapping
