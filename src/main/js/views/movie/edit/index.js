@@ -21,13 +21,13 @@ export const MovieEdit = () => {
         axios.post('/api/movies/new', movie).then(res=>
             setInsert(res.status)
         );
-        setMovie({id: null, name: '', description: '', image: ''})
+        setMovie({id: null, name: '', description: '', image: 'http://via.placeholder.com/150'})
     }
     
     return(
         <div  className="p-5 border container">
             {console.log(id)}
-            <h1 className="text-center justify-content-center">{id == null || id =='new' ? 'Adicionar novos filmes': 'Editar Filme'}</h1>
+            <h1 className="text-center justify-content-center title">{id == null || id =='new' ? 'Adicionar novos filmes': 'Editar Filme'}</h1>
             <form onSubmit={(e)=> insertMovie(e)} method="post">
                 {id != null && id !='new' ? 
                     <div className="text-center container"><img src={movie.image}/></div> 
@@ -40,7 +40,7 @@ export const MovieEdit = () => {
                 <label>Descrição:</label>
                 <textarea id="description" className="form-control" required value={movie.description} onChange={value => setMovie({...movie, description: value.currentTarget.value})} placeholder="Insira descrição do filme"/>
                 </div>
-                <div className="form-group  align-content-end">
+                <div className="form-group align-content-end">
                     <button className="btn btn-primary" type="submit">Cadastrar</button>
                 </div>
             </form>

@@ -4,6 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 
 export const Main = () => { 
   const[ movies, setMovies ] = useState([]);
+  const[ msgExcluir, setMsgExcluir ] = useState(false);
   const { push } = useHistory();
 
 	useEffect(()=> {
@@ -16,12 +17,17 @@ export const Main = () => {
     )
   )
   
-  const remove = (id) => {
+  const remove = (e, id) => {
+    e.preventDefault();
+    e.stopPropagation();
     axios.delete('/api/movies/'+id).catch(() => {
       <div className="alert alert-danger" id='errorRemove' role="alert">
         Falha na remoção do filme
       </div>
-    }).then(updateMovieList)
+    }).then(()=> {
+      setMsgExcluir(true)
+      updateMovieList()
+    })
   }
 
   const MovieList = () =>{
@@ -35,21 +41,26 @@ export const Main = () => {
     )
   }
 
-  const onMovieClick = (id) => {
+  const onMovieClick = (e, id) => {
+    e.stopPropagation();
+    e.preventDefault();
     push('/movies/'+id)
   }
 
   const Movie = ({movie: {id, image, name, description}}) => (
-    <div className="col-4 p-2" onClick={() => onMovieClick(id)} style={{'cursor': 'pointer'}}>
-      <div className="position-absolute" style={{'cursor': 'pointer', 'right': '0px'}} onClick={()=> remove(id)}>X</div>
-      <div className="text-center container"><img src={image}/></div>
-      <div className="text-center pt-2 border-bottom">{name}</div>
-      <div className="text-center">{description}</div>
+    <div className="col-4 p-2 movie">
+      <div className="position-absolute excluir" style={{'cursor': 'pointer', 'right': '0px'}} onClick={(e)=> remove(e, id)}>X</div>
+      <div className="text-center container image" onClick={(e) => onMovieClick(e, id)} style={{'cursor': 'pointer'}}><img src={image}/></div>
+      <div className="text-center pt-2 border-bottom" id='name'>{name}</div>
+      <div className="text-center" id='description'>{description}</div>
     </div>
   )
   
   return (
     <div className="wrapped P-5">
+      <div className="alert alert-success" hidden={!msgExcluir} role="alert">
+        Filme excluído com sucesso
+      </div>
       <div className="container "> 
           <MovieList className="border" movies={movies}/>
           <Link to="/movies/new" className="btn-link">Ir para página de Admin</Link>
